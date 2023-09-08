@@ -1,7 +1,8 @@
 package com.technews.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -24,52 +25,44 @@ public class Comment implements Serializable {
         this.userId = userId;
         this.postId = postId;
     }
-
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getCommentText() {
         return commentText;
     }
-
     public void setCommentText(String commentText) {
         this.commentText = commentText;
     }
-
     public Integer getUserId() {
         return userId;
     }
-
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-
     public Integer getPostId() {
         return postId;
     }
-
     public void setPostId(Integer postId) {
         this.postId = postId;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Comment)) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id) && Objects.equals(commentText, comment.commentText) && Objects.equals(userId, comment.userId) && Objects.equals(postId, comment.postId);
+        return Objects.equals(getId(), comment.getId()) &&
+                Objects.equals(getCommentText(), comment.getCommentText()) &&
+                Objects.equals(getUserId(), comment.getUserId()) &&
+                Objects.equals(getPostId(), comment.getPostId());
     }
-
     @Override
     public int hashCode() {
-        return Objects.hash(id, commentText, userId, postId);
+        return Objects.hash(getId(), getCommentText(), getUserId(), getPostId());
     }
-
     @Override
     public String toString() {
         return "Comment{" +

@@ -1,4 +1,4 @@
-package com.technews.repository;
+package com.technews.model.repository;
 
 import com.technews.model.Vote;
 import org.springframework.data.jpa.repository.JpaRepository;
